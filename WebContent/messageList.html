@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+ 			<div class="container">
+				<div class="row">
+					<span class="pull-left">
+				 		<a href="" class="link" data-ng-click="back();"> 
+							<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+						</a>
+					</span>
+					<b class="glyphicon-inverse">Messages</b>
+					<span class="pull-right">
+						<a href="#/composeMessage">
+				 			<span class="glyphicon glyphicon-inverse glyphicon-plus gi-2x"></span>
+			 			</a>
+			 			&nbsp;
+			 			<a href="" id="menu-toggle" style="margin-right: 10px;" onclick="toggleActions();">
+								<span
+								class="glyphicon glyphicon-inverse glyphicon-menu-hamburger gi-2x"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+ 			
+	 	</div>
+ 	</div>
+ 	<br>
+ 	<br>
+	<ul class="list-group">
+		<li class="list-group-item" data-ng-repeat="message in login.messages"
+				data-ng-model="showDetails"
+				data-ng-style="message.status === 0 && {'background-color': '#FFFFFF'} ||
+							  message.status === 1 && {'background-color': '#D8D8D8'}">  
+			<table style="width: 100%; padding: 0px;">
+				<tr>
+					<td style="vertical-align: top;" align="left">
+						<div style="text-align: left;" >
+							<a href="#" data-ng-click="viewProfile(message.from.loginId);">
+								<img class="img-responsive" 
+									 data-ng-src="{{baseUrl}}profileImage/findByLoginId/{{message.from.loginId}}"
+									 alt=""
+									 style="height: 90%; width: 90%;">
+							</a>
+						</div>
+					</td>
+					<td style="width: 80%; text-align: left; vertical-align: top; padding-left: 5px;">
+						<b> {{message.from.person.fullName}}</b> ({{message.from.person.city}})
+						<br>
+						<b>{{message.from.person.profession}}</b>
+						<br>
+						<span data-ng-hide="showDetails">
+							{{message.sentAt | date:'yyyy-MM-dd HH:mm'}}
+							<br>
+							{{message.messageContent | limitTo: 60}}
+							<span data-ng-if="message.messageContent.length > 60">
+								...
+							</span>
+						</span>
+						<div data-ng-show="showDetails" style="width: 100%;">
+							{{message.sentAt | date:'yyyy-MM-dd HH:mm'}}
+							<br>
+							<p">{{message.messageContent}}</p>
+							<div style="width: 100%; background-color: white; padding: 5px; padding-right: 10px;">
+				 				<span class="btn glyphicon glyphicon-pencil gi-1x"
+				 					 data-ng-click="reply(message.from);"></span>
+				 				<span class="btn glyphicon glyphicon-trash gi-1x"></span>
+							</div>
+						</div>
+					</td>
+					<td valign="top" align="right">
+						<span class="glyphicon glyphicon-menu-down gi-1x" 
+							data-ng-hide="showDetails" 
+							data-ng-click="updateStatus(message); showDetails = !showDetails"></span>
+							
+						<span class="glyphicon glyphicon-menu-up gi-1x" 
+							data-ng-show="showDetails" 
+							data-ng-click="showDetails = !showDetails"></span>
+					</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+</body>
+</html>

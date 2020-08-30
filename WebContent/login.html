@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+<body>
+	<div>
+		<div style="width:100%; text-align: center;">
+			<br>
+			<br>
+			<img src="welcome.jpg" align="middle">
+		</div>
+		<form class="form" role="form" data-ng-submit="doLogin();">
+			<div class="panel panel-body">
+				<div class="alert alert-info"  role="alert" data-ng-show="showAlert">
+					{{msg}}
+				</div>
+				<input type="text" class="form-control" placeholder="Login Id" 
+						data-ng-model="login.loginId"/> 
+				<br>
+				
+				<input type="password" class="form-control" placeholder="Password" 
+						data-ng-model="login.password"/>
+				<br>
+				<div style="text-align: right;">
+					<input type="submit" value="Login" class="btn btn-primary">
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

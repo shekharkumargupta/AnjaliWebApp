@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+	 		<div class="container">
+				<div class="row">
+					<span class="pull-left">
+				 		<a href="" class="link" data-ng-click="back();"> 
+							<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+						</a>
+					</span>
+					<b class="glyphicon-inverse">Profile</b>
+					<span class="pull-right">
+						<a href="" id="menu-toggle" style="margin-right: 10px;" onclick="toggleActions();">
+								<span
+								class="glyphicon glyphicon-inverse glyphicon-menu-hamburger gi-2x"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+	 	</div>
+ 	</div>
+ 	<br><br>
+ 	<div>
+	 	<form role="form" data-ng-submit="updateProfile();">
+			<div style="text-align: center;">
+				<table style="width: 100%;">
+					<tr style="color: black;
+						background:url({{baseUrl}}profileImage/findByLoginId/{{login.loginId}}) no-repeat;">
+						<td align="right" valign="top">
+							<h1>
+								<a href="#/uploadProfileImage" style="color: black;">
+									{{login.person.fullName}}
+								</a>
+							</h1>
+							<span data-ng-hide="editProfession">
+								<b>{{login.person.profession}}</b>
+							</span>
+							<a href="" data-ng-hide="editProfession" data-ng-click="editProfession = true">
+								<span class="glyphicon glyphicon-pencil gi-0x">
+								</span>
+							</a>
+							<span data-ng-show="editProfession">
+								<input type="text" data-ng-model="login.person.profession"/>
+							</span>
+							<input type="submit"
+								value="Save"
+								class="btn btn-primary small" 
+								data-ng-show="editProfession" data-ng-click="editProfession = false"/>
+							<br>
+							
+							
+							<span data-ng-hide="editCity">
+								{{login.person.city}}
+							</span>
+							<a href="" data-ng-hide="editCity" data-ng-click="editCity = true">
+								<span class="glyphicon glyphicon-pencil gi-0x">
+								</span>
+							</a>
+							<span data-ng-show="editCity">
+								<input type="text" data-ng-model="login.person.city"/>
+							</span>
+							<input type="submit"
+									value="Save"
+									class="btn btn-primary small" 
+									data-ng-show="editCity" data-ng-click="editCity = false"/>
+									
+									
+							<br>
+							<span data-ng-hide="editEmail">
+								{{login.person.email}}
+							</span>
+							<a href="" data-ng-hide="editEmail" data-ng-click="editEmail = true">
+								<span class="glyphicon glyphicon-pencil gi-0x">
+								</span>
+							</a>
+							<span data-ng-show="editEmail">
+								<input type="text" data-ng-model="login.person.email"/>
+							</span>
+							<input type="submit"
+									value="Save"
+									class="btn btn-primary small" 
+									data-ng-show="editEmail" data-ng-click="editEmail = false"/>
+										
+										
+							<br>
+							<span data-ng-hide="editMobile">
+								{{login.person.mobileNumber}}
+							</span>
+							<a href="" data-ng-hide="editMobile" data-ng-click="editMobile = true">
+								<span class="glyphicon glyphicon-pencil gi-0x">
+								</span>
+							</a>
+							<span data-ng-show="editMobile">
+								<input type="text" data-ng-model="login.person.mobileNumber"/>
+							</span>
+							<input type="submit"
+									value="Save"
+									class="btn btn-primary small" 
+									data-ng-show="editMobile" data-ng-click="editMobile = false"/>
+							<br>
+							<br>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+	<br>
+	<div class="panel-body">
+		<form role="form" data-ng-submit="updateProfile();">
+			<div style="text-align: left">
+				<b>About</b>
+				<a href="" data-ng-hide="editJobProfile" data-ng-click="editJobProfile = true">
+					<span class="glyphicon glyphicon-pencil gi-1x">
+					</span>
+				</a>
+			</div>
+			<span data-ng-hide="editJobProfile">
+				{{login.person.jobProfile}}
+			</span>
+			<span data-ng-show="editJobProfile">
+				<textarea data-ng-model="login.person.jobProfile" rows="6" style="width: 100%;">
+				</textarea>
+			</span>
+			<input type="submit"
+					value="Save"
+					class="btn btn-primary small" 
+					data-ng-show="editJobProfile" data-ng-click="editJobProfile = false"/>
+			<br>
+			<br>		
+			<div style="text-align: left">
+				<b>Skills</b>
+				<a href="" data-ng-hide="editKeySkills" data-ng-click="editKeySkills = true">
+					<span class="glyphicon glyphicon-pencil gi-1x">
+					</span>
+				</a>
+			</div>
+			<span data-ng-hide="editKeySkills">
+				{{login.person.keySkills}}
+			</span>
+			<span data-ng-show="editKeySkills">
+				<textarea data-ng-model="login.person.keySkills"  style="width: 100%;">
+				</textarea>
+			</span>
+			<input type="submit"
+					value="Save"
+					class="btn btn-primary small" 
+					data-ng-show="editKeySkills" data-ng-click="editKeySkills = false"/>
+		</form>		
+	</div>
+</body>
+</html>

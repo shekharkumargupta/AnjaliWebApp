@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Upload Profile Image</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+	 		<a href="" data-ng-click="back();">
+	 			<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+ 			</a>
+	 	</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<h1>Upload Profile Image</h1>
+	{{login.person.fullName}}
+	
+	<input type="file" name="file" onchange="angular.element(this).scope().uploadProfilePic(this.files)"/>
+</body>
+</html>

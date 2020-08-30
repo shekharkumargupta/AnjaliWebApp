@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+ 			<div class="container">
+				<div class="row">
+					<span class="pull-left">
+				 		<a href="" class="link" data-ng-click="back();"> 
+							<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+						</a>
+					</span>
+					<b class="glyphicon-inverse">Profile</b>
+					<span class="pull-right">
+						<a href="" id="menu-toggle" style="margin-right: 10px;" onclick="toggleActions();">
+								<span
+								class="glyphicon glyphicon-inverse glyphicon-menu-hamburger gi-2x"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+	 	</div>
+	</div>
+	<br><br>
+	<div class="">
+		<div class="row">
+			<div class="col-sm-12">
+				<img class="img-responsive" ng-src="{{baseUrl}}profileImage/findByLoginId/{{profile.loginId}}" alt="image"/>
+			
+				<h3>
+					{{profile.person.fullName}}
+				</h3>
+				<span data-ng-hide="editProfession">
+					<b>{{profile.person.profession}}</b>
+				</span>
+				
+				<br>
+				<span data-ng-hide="editCity">
+					{{profile.person.city}}
+				</span>
+				
+				<br>
+				<span data-ng-hide="editEmail">
+					{{profile.person.email}}
+				</span>
+												
+				<br>
+				<span data-ng-hide="editMobile">
+					{{profile.person.mobileNumber}}
+				</span>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="">
+		<div class="row">
+			<span class="col-md-4 glyphicon glyphicon-thumbs-up gi-2x"></span>
+			
+			<span data-ng-hide="hideFriendRequest"
+				  class="col-md-4 glyphicon glyphicon-ok-circle gi-2x"
+				  data-ng-click="makeFriendRequest(); hideFriendRequest = true"></span>
+				  
+			<span class="col-md-4 glyphicon glyphicon-envelope gi-2x"></span>
+		</div>
+	</div>
+	<div class="panel-body">
+		<b>About</b>
+		<br>
+			{{profile.person.keySkills}}
+		<br>
+		<br>
+		<b>Skills</b>
+		<br>
+			{{profile.person.jobProfile}}
+		
+	</div>
+	<div class="panel-body">
+		<b>Friends</b>
+		<span class="badge" style="background-color: #223344;">
+			{{profile.friends.length}}
+		</span>
+	</div>
+	<ul class="list-group">
+		<li class="list-group-item panel" data-ng-repeat="friend in profile.friends">
+			<div class="media">
+				<a href="#" class="pull-left">
+					<img data-ng-src="{{baseUrl}}profileImage/findByLoginId/{{friend.loginId}}"
+						data-ng-click="viewProfile(friend.loginId);" 
+						alt="Media Object">
+				</a>
+				<div class="media-body">
+					<span class="media-heading">
+						<b> {{friend.person.fullName}}</b> ({{friend.person.city}}) 
+					</span>
+					<br>
+					<span>
+						{{friend.person.profession}}
+					</span>
+				</div>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

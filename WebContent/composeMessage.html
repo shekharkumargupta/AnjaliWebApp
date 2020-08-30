@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+			<div class="container">
+				<div class="row">
+					<span class="pull-left">
+				 		<a href="" class="link" data-ng-click="back();"> 
+							<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+						</a>
+					</span>
+					<b class="glyphicon-inverse">Compose Message</b>
+					<span class="pull-right">
+						<a href="">
+							<span class="glyphicon glyphicon-inverse glyphicon-send gi-2x" data-ng-click="send();"></span>
+						</a>
+						&nbsp;
+						<a href="" id="menu-toggle" style="margin-right: 10px;" onclick="toggleActions();">
+								<span
+								class="glyphicon glyphicon-inverse glyphicon-menu-hamburger gi-2x"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+	 	</div>
+ 	</div>
+ 	<br>
+ 	<br>
+ 	<!-- select user -->
+ 	<div class="">
+ 		<input class="form-control" type="text"	data-ng-model="search"	data-ng-click="showList = true"/>	
+ 		<ul class="list-group">
+			<li class="list-group-item panel" data-ng-repeat="friend in login.friends | filter:search:strict"
+				data-ng-show="showList" data-ng-click="selectUser(friend);">
+				<div class="media">
+					<a href="#" class="pull-left" data-ng-click="viewProfile(login.loginId);">
+						<img data-ng-src="{{baseUrl}}profileImage/findByLoginId/{{friend.loginId}}" 
+						alt="Media Object">
+					</a>
+					<div class="media-body">
+						<b class="media-heading">
+							{{friend.person.fullName}}
+						</b>
+						<br>
+						({{friend.person.city}})
+						<br>
+						<span>
+							{{friend.person.profession}}
+						</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+ 	</div> 
+ 	<div class="" data-ng-hide="showList">
+	 	<table style="width: 100%; padding: 10px;">
+			<tr>
+				<td style="vertical-align: top;" align="left">
+					<a href=""data-ng-click="viewProfile(messageTo.loginId);">
+						<img class="img-responsive" 
+							 data-ng-src="{{baseUrl}}profileImage/findByLoginId/{{messageTo.loginId}}"
+							 alt=""
+							 style="height: 90%; width: 90%;">
+					</a>
+				</td>
+				<td style="width: 80%; text-align: left; vertical-align: top; padding-left: 5px;">
+					<b> {{messageTo.person.fullName}}</b> ({{messageTo.person.city}})
+					<br>
+					<b>{{messageTo.person.profession}}</b>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<div class="">
+			<textarea class="form-control" data-ng-model="message.messageContent" rows="10" style="width: 100%;">
+			</textarea>
+		</div>
+	</div>
+	<div class="navbar-fixed-bottom">
+		<div class="panel-body" style="width: 100%;">
+			<a href="" class="pull-right btn btn-primary" data-ng-click="sendMessage();"> 
+				<span class="glyphicon glyphicon-inverse glyphicon-send gi-1x"></span>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

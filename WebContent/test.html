@@ -1,0 +1,17 @@
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<script language="JavaScript"
+		src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(
+				function($) {
+					alert("Your location is: " + geoplugin_countryName() + ", "
+							+ geoplugin_region() + ", " + geoplugin_city());
+				});
+	</script>
+</body>
+</html>

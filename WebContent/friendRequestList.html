@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+</head>
+<body>
+	<div class="navbar-fixed-top" role="navigation">
+		<div class="contentHeader" style="margin-top: 0px;">
+	 		<div class="container">
+				<div class="row">
+					<span class="pull-left">
+				 		<a href="" class="link" data-ng-click="back();"> 
+							<span class="glyphicon glyphicon-inverse glyphicon-chevron-left gi-2x"></span>
+						</a>
+					</span>
+					<b class="glyphicon-inverse">Friend Request</b>
+					<span class="pull-right">
+						<a href="" id="menu-toggle" style="margin-right: 10px;" onclick="toggleActions();">
+								<span
+								class="glyphicon glyphicon-inverse glyphicon-menu-hamburger gi-2x"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+	 	</div>
+ 	</div>
+ 	<br>
+ 	<br>
+	<ul class="list-group">
+		<li class="list-group-item" data-ng-repeat="request in friendRequests">
+			<table style="width: 100%;">
+				<tr>
+					<td style="vertical-align: top;" align="left">
+						<div style="text-align: left;" >
+							<a href="#" data-ng-click="viewProfile(request.requestFrom.loginId);">
+								<img class="img-responsive" data-ng-src="{{baseUrl}}profileImage/findByLoginId/{{request.requestFrom.loginId}}" 
+								alt=""
+								style="height: 90%; width: 90%;">
+							</a>
+						</div>
+					</td>
+					<td style="width: 80%; text-align: left; vertical-align: top; padding-left: 5px;">
+						<div>
+							<span class="pull-left">
+								<b> {{request.requestFrom.person.fullName}} </b>({{request.requestFrom.person.city}})
+							</span>
+							<br>
+							<span>
+								{{request.requestFrom.person.profession}}
+							</span>
+						</div>
+					</td>
+					<td valign="top" style="text-align: right;">
+						<a href="" data-ng-click="confirm(request.id);">
+							<span class="glyphicon glyphicon-ok-circle gi-1x"></span>
+						</a>
+					</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+</body>
+</html>

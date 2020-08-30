@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html data-ng-app="myApp">
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-switch.min.css" rel="stylesheet">
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+
+<style type="text/css">
+body {
+	background: white;
+	!
+	important;
+}
+sidebar-nav{
+	position: relative;
+}
+</style>
+<script type="text/javascript">
+	function toggleActions() {
+		$('#wrapper').toggleClass('toggled');
+	}
+</script>
+</head>
+<body data-ng-controller="mainController">
+	<div id="wrapper">
+		<div id="sidebar-wrapper" class="app-font-inverse">
+			<ul class="sidebar-nav" style="padding: 5px;">
+				<li class="sidebar-brand">
+					<h3>
+						
+					</h3>
+				</li>
+				<li data-ng-click="openPage('/home');">
+					<span class="glyphicon glyphicon-inverse glyphicon-home gi-1.5x"  style="padding: 10px;">
+					</span>
+					Posts & Feeds
+				</li>
+				<li data-ng-click="openPage('/searchProfessionals');">
+					<span class="glyphicon glyphicon-inverse glyphicon-user gi-1.5x"  style="padding: 10px;">
+					</span>
+					Find People
+				</li>
+				<li data-ng-click="openPage('/friendRequestList');">
+					<span class="glyphicon glyphicon-inverse glyphicon-globe gi-1.5x"  style="padding: 10px;">
+					</span>
+					Friend Requests
+				</li>
+				<li data-ng-click="openPage('/friendList');">
+					<span class="glyphicon glyphicon-inverse glyphicon-link gi-1.5x"  style="padding: 10px;">
+					</span>
+					Friend List
+				</li>
+				<li data-ng-click="openPage('/messageList');">
+					<span class="glyphicon glyphicon-inverse glyphicon-envelope gi-1.5x"  style="padding: 10px;">
+					</span>
+					Messages
+				</li>
+				<li data-ng-click="openPage('/chat');">
+					<span class="glyphicon glyphicon-inverse glyphicon-comment gi-1.5x"  style="padding: 10px;">
+					</span>
+					Chat
+				</li>
+				<li data-ng-click="openPage('/profileSettings');">
+					<span class="glyphicon glyphicon-inverse glyphicon-cog gi-1.5x"  style="padding: 10px;">
+					</span>
+					Settings
+				</li>
+			</ul>
+		</div>
+		<div id="page-content-wrapper">
+			<div class="container">
+				<div class="row">
+					<div data-ng-view="" class="col-md-6">
+						<h1>Welcome</h1>
+					</div>
+				
+					<div class="col-md-6">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-switch.min.js"></script>
+	<script type="text/javascript" src="js/angularjs1.4.3/angular.min.js"></script>
+	<script type="text/javascript" src="js/angularjs1.4.3/angular-route.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+	
+	<script>
+		/*
+		toggleActions();
+		*/
+	</script>
+	
+</body>
+</html>

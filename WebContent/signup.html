@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    	<br>
+        <div style="margin: 10px; text-align: center;">
+			<font face="forte"> 
+				<span style="font-size: 80px; color: #CC0066;"> 
+					Anjali 
+				</span>
+			</font>
+		</div>
+        <div class="panel-body">
+            <form class="form" role="form" data-ng-submit="createLogin();">
+                <input type="text" class="form-control" 
+                       placeholder="Name"
+                       data-ng-model="person.fullName"
+                       />            	
+            	<br>
+                <input type="email" class="form-control" 
+                       placeholder="Email"
+                       data-ng-model="person.email" 
+                       style="width: 100%;"
+                       />
+                <br>
+                <input type="text" class="form-control" 
+                       placeholder="Profession, Speciality"
+                       data-ng-model="person.profession" 
+                       style="width: 100%;"
+                       />
+                <br>
+                <input type="hidden" class="form-control" 
+                       placeholder="City"
+                       data-ng-model="person.city" 
+                       style="width: 100%;"
+                       />       
+                <div style="text-align: right;">
+                    <input type="submit" 
+                           value="Create"
+                           class="btn btn-primary"
+                           style="margin-top: 5px;"/>
+                </div>
+            </form>
+        </div>
+        
+        
+    </body>
+</html>
